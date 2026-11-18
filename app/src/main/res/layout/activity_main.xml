@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="14dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="8dp">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_title"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="@string/app_subtitle"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <!-- Segmented tabs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_segment"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/tabMoney"
+            style="@style/Tab"
+            android:text="@string/tab_money" />
+
+        <TextView
+            android:id="@+id/tabGrams"
+            style="@style/Tab"
+            android:text="@string/tab_grams" />
+
+        <TextView
+            android:id="@+id/tabBill"
+            style="@style/Tab"
+            android:text="@string/tab_bill" />
+    </LinearLayout>
+
+    <!-- Result card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_card"
+        android:orientation="vertical"
+        android:paddingStart="18dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/displayLabel"
+            style="@style/CardLabel"
+            android:text="@string/label_weight" />
+
+        <TextView
+            android:id="@+id/displayValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="1"
+            android:text="@string/zero"
+            android:textColor="@color/green"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/displaySub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- First input card -->
+    <LinearLayout
+        android:id="@+id/inputCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_card_active"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingStart="18dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/inputLabel"
+                style="@style/CardLabel"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="@string/label_amount" />
+
+            <TextView
+                android:id="@+id/inputSuffix"
+                style="@style/CardLabel"
+                android:text="@string/rupee" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/inputValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="@string/zero"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Rate card -->
+    <LinearLayout
+        android:id="@+id/rateCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_card"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingStart="18dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CardLabel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/label_rate" />
+
+            <TextView
+                style="@style/CardLabel"
+                android:text="@string/unit_per_kg" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/rateValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="@string/zero"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Keypad -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:minHeight="240dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/key7"
+                style="@style/Key"
+                android:text="7" />
+
+            <TextView
+                android:id="@+id/key8"
+                style="@style/Key"
+                android:text="8" />
+
+            <TextView
+                android:id="@+id/key9"
+                style="@style/Key"
+                android:text="9" />
+
+            <ImageView
+                android:id="@+id/keyBack"
+                style="@style/Key"
+                android:background="@drawable/bg_key"
+                android:contentDescription="@string/cd_backspace"
+                android:padding="18dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_backspace" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/key4"
+                style="@style/Key"
+                android:text="4" />
+
+            <TextView
+                android:id="@+id/key5"
+                style="@style/Key"
+                android:text="5" />
+
+            <TextView
+                android:id="@+id/key6"
+                style="@style/Key"
+                android:text="6" />
+
+            <TextView
+                android:id="@+id/keyClear"
+                style="@style/KeyAccent"
+                android:contentDescription="@string/cd_clear"
+                android:text="C" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/key1"
+                style="@style/Key"
+                android:text="1" />
+
+            <TextView
+                android:id="@+id/key2"
+                style="@style/Key"
+                android:text="2" />
+
+            <TextView
+                android:id="@+id/key3"
+                style="@style/Key"
+                android:text="3" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/key0"
+                style="@style/Key"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/key00"
+                style="@style/Key"
+                android:text="00" />
+
+            <TextView
+                android:id="@+id/keyDot"
+                style="@style/Key"
+                android:text="." />
+
+            <ImageView
+                android:id="@+id/keySubmit"
+                style="@style/Key"
+                android:background="@drawable/bg_key_accent"
+                android:contentDescription="@string/cd_submit"
+                android:padding="18dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_arrow_forward" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text="@string/footer_note"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp" />
+
+</LinearLayout>

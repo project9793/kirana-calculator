@@ -1,0 +1,52 @@
+name: Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew || true
+
+      - name: Build release APK
+        env:
+          KIRANA_STORE_FILE: ${{ secrets.KIRANA_STORE_FILE }}
+        run: |
+          if [ -n "$KIRANA_STORE_FILE" ]; then
+            echo "${{ secrets.KIRANA_KEYSTORE_BASE64 }}" | base64 -d > release.keystore
+            ./gradlew assembleRelease --no-daemon \
+              -PKIRANA_STORE_FILE=../release.keystore \
+              -PKIRANA_STORE_PASSWORD="${{ secrets.KIRANA_STORE_PASSWORD }}" \
+              -PKIRANA_KEY_ALIAS="${{ secrets.KIRANA_KEY_ALIAS }}" \
+              -PKIRANA_KEY_PASSWORD="${{ secrets.KIRANA_KEY_PASSWORD }}"
+          else
+            ./gradlew assembleRelease --no-daemon
+          fi
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: app/build/outputs/apk/release/*.apk
+
+      - name: Attach APK to GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/build/outputs/apk/release/*.apk

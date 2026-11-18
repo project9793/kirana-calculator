@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">किराना कैलकुलेटर</string>
+    <string name="app_title">किराना कैलकुलेटर</string>
+    <string name="app_subtitle">रेट, वजन और रकम का हिसाब — सेकंड में</string>
+
+    <string name="tab_money">पैसा निकालें</string>
+    <string name="tab_grams">ग्राम निकालें</string>
+    <string name="tab_bill">बिल जोड़ें</string>
+
+    <string name="label_weight">वजन</string>
+    <string name="label_amount">रकम</string>
+    <string name="label_rate">रेट</string>
+    <string name="label_total_bill">कुल बिल</string>
+
+    <string name="unit_gram">ग्राम</string>
+    <string name="unit_per_kg">₹ / किलो</string>
+    <string name="rupee">₹</string>
+    <string name="zero">0</string>
+    <string name="items_count">%1$d आइटम</string>
+
+    <string name="footer_note">पूरा हिसाब आपके फ़ोन में ही चलता है — इंटरनेट की ज़रूरत नहीं।</string>
+
+    <string name="cd_backspace">एक अंक मिटाएँ</string>
+    <string name="cd_clear">साफ़ करें</string>
+    <string name="cd_submit">जोड़ें</string>
+</resources>
